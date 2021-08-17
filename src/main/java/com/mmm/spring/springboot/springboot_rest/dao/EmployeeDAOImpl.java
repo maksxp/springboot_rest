@@ -32,39 +32,39 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         return allEmployees;
     }
 
-//    @Override
-//    public void saveEmployee(Employee employee) {
-//
-//        Session session = sessionFactory.getCurrentSession();
-//
-//        //this method add new employee if id=0 and update exist employee in another case
-//        session.saveOrUpdate(employee);
-//    }
-//
-//    @Override
-//    public Employee getEmployee(int id) {
-//        Session session = sessionFactory.getCurrentSession();
-//
+    @Override
+    public void saveEmployee(Employee employee) {
+
+        Session session = entityManager.unwrap(Session.class);
+
+        //this method add new employee if id=0 and update exist employee in another case
+        session.saveOrUpdate(employee);
+    }
+
+    @Override
+    public Employee getEmployee(int id) {
+        Session session = entityManager.unwrap(Session.class);
+
+        Employee employee =session.get(Employee.class, id);
+        return employee;
+    }
+
+    @Override
+    public void deleteEmployee(int id) {
+
+        Session session = entityManager.unwrap(Session.class);
+
+//        //option without Query
 //        Employee employee =session.get(Employee.class, id);
-//        return employee;
-//    }
-//
-//    @Override
-//    public void deleteEmployee(int id) {
-//
-//        Session session = sessionFactory.getCurrentSession();
-//
-////        //option without Query
-////        Employee employee =session.get(Employee.class, id);
-////        session.delete(employee);
-//
-//       //option with Query and setParameter
-//        Query <Employee> query = session
-//                .createQuery("delete from Employee where id=:employeeId");
-//        query.setParameter("employeeId", id);
-//        query.executeUpdate();
-//
-//    }
+//        session.delete(employee);
+
+       //option with Query and setParameter
+        Query <Employee> query = session
+                .createQuery("delete from Employee where id=:employeeId");
+        query.setParameter("employeeId", id);
+        query.executeUpdate();
+
+    }
 
 
 }

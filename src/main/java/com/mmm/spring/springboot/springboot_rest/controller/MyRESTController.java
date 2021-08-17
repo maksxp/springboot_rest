@@ -22,12 +22,12 @@ public class MyRESTController {
         return allEmployees;
     }
 
-//    @GetMapping("/employees/{id}")
-//    public Employee getEmployee(@PathVariable int id) {
-//        Employee employee = employeeService.getEmployee(id);
-//
-//        return employee;
-//    }
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable int id) {
+        Employee employee = employeeService.getEmployee(id);
+
+        return employee;
+    }
 
 //    //two methods below we can use for all controllers with another separate class which has annotation @ControllerAdvice and
 //    @ExceptionHandler
@@ -46,28 +46,28 @@ public class MyRESTController {
 //        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
 //    }
 
-//    @PostMapping("/employees")
-//    public Employee addNewEmployee (@RequestBody Employee employee) {
-//
-//        employeeService.saveEmployee(employee);
-//        return employee;
-//    }
-//
-//    @PutMapping("/employees")
-//    public Employee updateEmployee (@RequestBody Employee employee) {
-//
-//        employeeService.saveEmployee(employee);
-//        return employee;
-//    }
-//
-//    @DeleteMapping("/employees/{id}")
-//    public String deleteEmployee(@PathVariable int id) {
-//
-//        Employee employee = employeeService.getEmployee(id);
-//
-//        employeeService.deleteEmployee(id);
-//
-//
-//        return "Employee with ID = "+id+" was deleted";
-//    }
+    @PostMapping("/employees")
+    public Employee addNewEmployee (@RequestBody Employee employee) {
+
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @PutMapping("/employees")
+    public Employee updateEmployee (@RequestBody Employee employee) {
+
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+
+        Employee employee = employeeService.getEmployee(id);
+
+        employeeService.deleteEmployee(id);
+
+
+        return "Employee with ID = "+id+" was deleted";
+    }
 }
