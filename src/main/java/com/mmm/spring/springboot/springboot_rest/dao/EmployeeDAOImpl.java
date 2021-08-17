@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+//this version of DAOImpl uses hibernate realization of JPA
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO{
 
@@ -65,6 +66,4 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         query.executeUpdate();
 
     }
-
-
 }
